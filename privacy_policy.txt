@@ -1,0 +1,1 @@
+Copy Comments, a Google Docs Add-on, does not collect any information about the user nor their Google Drive or Google Document contents.
