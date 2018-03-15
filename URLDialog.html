@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons.css">
+<style>
+.spacing{
+   padding-bottom:0px;
+}
+.urlLink{
+  display: none;
+}
+.placeholder{
+  padding-top:0px;
+}
+.spacingHolder{
+  display:none;
+}
+</style>
+
+<div align="center">
+Your document with comments has been copied
+
+   <div id="URLHolder" class="spacing"></div>
+   <div class="spacing">
+       <p class = "placeholder" id="placeholder">Retrieving Link ...</p>
+       <p class = "spacingHolder" id = "spacingHolder">
+          <a href="#" id="urlSpace" class="urlLink" value="Link" target="_blank">Retrieving Link ...</a>
+       </p>
+   </div>
+  
+</div>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+</script>
+<script>
+var timer = setTimeout(function(){},1000);
+$(document).ready(function(){
+   timer = setInterval(function(){google.script.run.withSuccessHandler(changeURL).retrieveURL()},1000);
+});
+
+function changeURL(URL){
+  if(URL != null){
+    var urlSpace = document.getElementById("urlSpace");
+    urlSpace.style.display = "inline";
+    document.getElementById("placeholder").style.display = "none";
+    document.getElementById("spacingHolder").style.display = "block";
+    urlSpace.setAttribute("href", URL);
+    urlSpace.innerHTML = "Link to document"
+    clearTimeout(timer);
+  }
+}
+</script>
+
+
